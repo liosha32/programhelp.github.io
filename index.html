@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080910">
+  <meta name="description" content="Telegram-боты от 10 $, дизайн от 100 $, поддержка от 10 $/час.">
+  <title>Мои услуги — боты, дизайн, поддержка</title>
+
+  <meta property="og:title" content="Мои услуги — боты, дизайн, поддержка">
+  <meta property="og:description" content="Telegram-боты от 10 $, дизайн от 100 $, поддержка от 10 $/час.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080910;
+      --card: rgba(255, 255, 255, .045);
+      --line: rgba(255, 255, 255, .09);
+      --text: #f5f6fb;
+      --muted: #a2a5b5;
+      --purple: #9c70ff;
+      --blue: #58a6ff;
+      --cyan: #62e3de;
+      --radius: 24px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 75% 12%, rgba(106, 62, 201, .14), transparent 32%),
+        radial-gradient(ellipse at 8% 48%, rgba(41, 108, 174, .10), transparent 34%),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+
+    .header {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(8, 9, 16, .78);
+      backdrop-filter: blur(18px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; font-size: 18px; }
+    .logo-mark {
+      display: grid; place-items: center; width: 36px; height: 36px;
+      border-radius: 12px; color: white;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      box-shadow: 0 0 28px rgba(156,112,255,.35);
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { padding: 11px 17px; font-size: 13px; }
+
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 0 22px; border: 1px solid transparent;
+      border-radius: 14px; color: white;
+      background: linear-gradient(110deg, #8358ef, #536bea 55%, #388ee7);
+      box-shadow: 0 10px 35px rgba(91, 93, 224, .24);
+      font-weight: 700; font-size: 14px; cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(91, 93, 224, .38); }
+    .button-outline {
+      color: var(--text); border-color: var(--line);
+      background: rgba(255,255,255,.035); box-shadow: none;
+    }
+    .button-outline:hover { border-color: rgba(156,112,255,.55); }
+
+    .hero { padding: 104px 0 86px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 46px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: #c3b1ff; border: 1px solid rgba(156,112,255,.24);
+      background: rgba(156,112,255,.08); border-radius: 100px;
+      padding: 8px 13px; font-size: 12px; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+    h1 { margin: 24px 0 18px; max-width: 720px; font-size: clamp(42px, 6vw, 72px); line-height: 1.08; letter-spacing: -.065em; }
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(100deg, #b99bff 4%, #6caeff 54%, #6ce0d7 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .hero-copy { max-width: 610px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .trust-note { margin-top: 25px; color: #c7c8d2; font-size: 13px; display: flex; align-items: center; gap: 9px; }
+    .trust-note span { color: var(--cyan); font-size: 17px; }
+
+    section { padding: 92px 0; position: relative; }
+    .section-heading { max-width: 680px; margin-bottom: 38px; }
+    .section-kicker { color: #a995ff; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 10px 0 12px; font-size: clamp(30px, 4vw, 46px); line-height: 1.15; letter-spacing: -.05em; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+    .service-card {
+      display: flex; flex-direction: column; padding: 25px; min-height: 420px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      border-radius: var(--radius);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(156,112,255,.4); }
+    .service-card.featured { border-color: rgba(156,112,255,.36); box-shadow: 0 15px 55px rgba(80,60,150,.10); }
+    .service-top { display: flex; justify-content: space-between; align-items: center; }
+    .service-label { color: #aeb0bf; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+    .icon-box {
+      display: grid; place-items: center; width: 43px; height: 43px;
+      border-radius: 14px; color: #c7b6ff;
+      background: linear-gradient(135deg, rgba(156,112,255,.21), rgba(88,166,255,.12));
+      border: 1px solid rgba(156,112,255,.2); font-size: 19px;
+    }
+    .service-card h3 { margin: 17px 0 9px; font-size: 24px; letter-spacing: -.04em; }
+    .service-card > p { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+    .service-list { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 9px; color: #d3d5df; font-size: 12px; }
+    .service-list li::before { content: "✓"; color: var(--cyan); margin-right: 9px; font-weight: 800; }
+    .price { margin-top: auto; margin-bottom: 17px; font-size: 14px; color: var(--muted); }
+    .price strong { color: white; font-size: 21px; }
+    .service-card .button { width: 100%; min-height: 47px; font-size: 12px; }
+
+    .contact-wrap {
+      position: relative; display: grid; grid-template-columns: 1fr .9fr; gap: 42px;
+      padding: 42px; border: 1px solid rgba(156,112,255,.2); border-radius: 30px;
+      background:
+        radial-gradient(ellipse at 0 0, rgba(124,81,232,.17), transparent 45%),
+        linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      overflow: hidden;
+    }
+    .contact-copy h2 { max-width: 480px; }
+    .contact-copy p { color: var(--muted); max-width: 420px; font-size: 14px; }
+    .contact-form { display: grid; gap: 12px; }
+    .field {
+      width: 100%; min-height: 50px; padding: 0 15px; color: white;
+      background: rgba(4,5,11,.42); border: 1px solid var(--line);
+      border-radius: 12px; outline: none;
+    }
+    .field:focus { border-color: rgba(156,112,255,.65); box-shadow: 0 0 0 3px rgba(156,112,255,.1); }
+    textarea.field { min-height: 100px; padding: 13px 15px; resize: vertical; }
+    .field::placeholder { color: #777b8d; }
+    .form-status { min-height: 20px; color: var(--cyan); font-size: 12px; }
+
+    footer { padding: 28px 0 34px; border-top: 1px solid rgba(255,255,255,.07); color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 25px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .nav-links { display: none; }
+      h1 { font-size: clamp(41px, 12vw, 58px); }
+      .service-grid { grid-template-columns: 1fr; }
+      .contact-wrap { padding: 25px 19px; border-radius: 23px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top">
+        <span class="logo-mark">✦</span>
+        <span>Мои<span class="gradient-text">Услуги</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#contact">Связаться</a>
+        <a class="button nav-cta" href="#contact">Обсудить проект <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Digital-разработка для бизнеса</div>
+          <h1>Цифровые решения<br>для <span class="gradient-text">роста вашего бизнеса</span></h1>
+          <p class="hero-copy">
+            Делаю Telegram-ботов, дизайн и поддержку, которые помогают привлекать клиентов
+            и автоматизировать работу.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Обсудить проект <span>↗</span></a>
+            <a class="button button-outline" href="#services">Посмотреть услуги <span>↓</span></a>
+          </div>
+          <div class="trust-note"><span>✦</span> От идеи до готового продукта</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Наши услуги</div>
+          <h2>Всё необходимое <span class="gradient-text">для цифрового роста</span></h2>
+          <p>Выберите направление — вместе найдём решение под вашу задачу и бюджет.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card featured">
+            <div class="service-top"><span class="service-label">Автоматизация</span><span class="icon-box">✦</span></div>
+            <h3>Telegram-боты</h3>
+            <p>Автоматизирую общение с клиентами, приём заказов, запись на услуги и уведомления через Telegram.</p>
+            <ul class="service-list">
+              <li>Боты для приёма заказов</li>
+              <li>Запись клиентов и напоминания</li>
+              <li>Боты для магазинов и школ</li>
+              <li>Оплата и интеграции</li>
+            </ul>
+            <div class="price">Цена от <strong> 10 $</strong></div>
+            <a class="button" href="#contact" data-service="Telegram-бот">Заказать бота <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top"><span class="service-label">Визуал</span><span class="icon-box">▣</span></div>
+            <h3>Дизайн / UI-макет</h3>
+            <p>Создаю логотипы, баннеры и интерфейсы, которые выделяют бизнес и удобны клиентам.</p>
+            <ul class="service-list">
+              <li>Логотипы и фирменный стиль</li>
+              <li>Баннеры для соцсетей</li>
+              <li>UI-макеты для ботов</li>
+              <li>Оформление каналов</li>
+            </ul>
+            <div class="price">Цена от <strong> 100 $</strong></div>
+            <a class="button button-outline" href="#contact" data-service="Дизайн">Заказать дизайн <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top"><span class="service-label">Сопровождение</span><span class="icon-box">◉</span></div>
+            <h3>Доработка / поддержка</h3>
+            <p>Помогаю с правками, доработками и консультациями по уже готовым проектам.</p>
+            <ul class="service-list">
+              <li>Правки в существующих ботах</li>
+              <li>Добавление новых функций</li>
+              <li>Консультации по Telegram</li>
+              <li>Срочные доработки</li>
+            </ul>
+            <div class="price">Цена от <strong> 10 $/час</strong></div>
+            <a class="button button-outline" href="#contact" data-service="Поддержка">Обсудить поддержку <span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-copy">
+            <div class="section-kicker">Есть идея?</div>
+            <h2>Давайте превратим её <span class="gradient-text">в работающий продукт</span></h2>
+            <p>Расскажите, что хотите создать. Свяжусь с вами, обсудим задачу и предложу следующие шаги.</p>
+
+            <div style="margin-top: 18px;">
+              <a class="button button-outline"
+                 href="https://t.me/ВАШ_БОТ"
+                 target="_blank" rel="noopener noreferrer">
+                Написать в Telegram <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm"
+                action="https://formspree.io/f/ВАШ_ID" method="POST">
+            <input class="field" name="name" type="text" placeholder="Как к вам обращаться?" required>
+            <input class="field" name="contact" type="text" placeholder="Телефон, Telegram или email" required>
+            <textarea class="field" name="message" placeholder="Коротко о вашей задаче"></textarea>
+            <button class="button" type="submit">Отправить заявку <span>↗</span></button>
+            <div class="form-status" id="formStatus" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#top">
+        <span class="logo-mark">✦</span>
+        <span>Мои<span class="gradient-text">Услуги</span></span>
+      </a>
+      <span>© <span id="year"></span> Все права защищены.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Подстановка услуги в текст заявки
+    document.querySelectorAll("[data-service]").forEach(button => {
+      button.addEventListener("click", () => {
+        const message = document.querySelector('[name="message"]');
+        message.value = `Интересует услуга: ${button.dataset.service}. `;
+      });
+    });
+
+    // Отправка формы через Formspree (без перезагрузки страницы)
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const status = document.getElementById("formStatus");
+      status.textContent = "Отправляем…";
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+        if (res.ok) {
+          status.textContent = "✅ Спасибо! Заявка отправлена.";
+          form.reset();
+        } else {
+          status.textContent = "❌ Не удалось отправить. Попробуйте позже.";
+        }
+      } catch {
+        status.textContent = "❌ Ошибка сети. Попробуйте позже.";
+      }
+    });
+
+    // Год в подвале
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
